@@ -1,0 +1,44 @@
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--magenta">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Webinar Application</span>
+            <span class="mdl-layout-title page-name-title">Dashboard</span>
+            <div class="mdl-layout-spacer"></div>
+
+        </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer backround--color-white">
+        <app-profileview></app-profileview>
+        <hr>
+        <app-nav></app-nav>
+    </div>
+    <main style="height: -webkit-fill-available;" class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid form-width-settings">
+            <form [formGroup]="rForm">
+                <div class="" style="text-align: center !important;">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-profile">
+                        <input formControlName="address" class="mdl-textfield__input" [(ngModel)]="address" id="address">
+                        <label class="mdl-textfield__label" for="name-orignal">Address</label>
+                    </div>
+                    <div class="alert" *ngIf="!rForm.controls['address'].valid && rForm.controls['address'].touched"
+                        style="color:red; text-align: center !important;">{{ addressAlert }}</div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-profile">
+                        <input formControlName="dateofbirth" class="mdl-textfield__input" [(ngModel)]="dateofbirth" id="dateofbirth"
+                            type="date">
+                        <label class="mdl-textfield__label" for="webinar-topic">Date Of Birth</label>
+                    </div>
+                   
+                </div>
+
+
+                <div (click)="changeProfile()" style="text-align: center !important;">
+                    <a target="_blank" class="logout-custom-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white"
+                        type="submit">Change Profile</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</div>

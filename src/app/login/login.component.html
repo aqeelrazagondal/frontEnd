@@ -1,0 +1,117 @@
+<header class="demo-header mdl-layout__header mdl-color--magenta">
+    <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Rock Ville</span>
+        <div class="mdl-layout-spacer"></div>
+        <a id="show-dialog" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white-top">Sign
+            Up
+            <i class="material-icons" role="presentation">create</i>
+        </a>
+    </div>
+</header>
+<div class="mdl-grid background-container">
+    <div class="mdl-cell mdl-cell--12-col">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <h2 class="mdl-card__title-text">Welcome To RockVille Application</h2>
+            <div class="login-form-cs">
+                <form [formGroup]="rForm" class="login-action-cs">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="email" class="mdl-textfield__input" id="email1" [(ngModel)]="email">
+                        <label class="mdl-textfield__label" for="email1"><i class="font-loginfrom material-icons">email</i>
+                            Email</label>
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">{{
+                        titleAlert }}</div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="password" class="mdl-textfield__input" type="password" id="password1"
+                            [(ngModel)]="password">
+                        <label class="mdl-textfield__label" for="password"><i class="font-loginfrom material-icons">lock</i>
+                            Password</label>
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{
+                        passwordAlert }}</div>
+                    <div (click)="loginUser()" (ngModelChange)="!rForm.valid" type="button" class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button login-action mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Email</th>
+                        <th>Password</th>
+                 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">test123@gmail.com</td>
+                        <td>test123</td>
+                    </tr>
+                   
+                 
+                </tbody>
+            </table>
+    </div>
+   
+</div>
+
+<dialog class="mdl-dialog dailog-creating-from">
+    <h4 class="mdl-dialog__title">Create Your Account</h4>
+    <hr>
+    <div class="mdl-grid">
+        <form [formGroup]="regForm">
+            <div class="mdl-cell mdl-cell--6-col" style="float: left;">
+                <div class="mdl-dialog__content">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="emailr" class="mdl-textfield__input" [(ngModel)]="emailr" type="text"
+                            id="name-orignal">
+                        <label class="mdl-textfield__label" for="email">Email </label>
+
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!regForm.controls['emailr'].valid && regForm.controls['emailr'].touched">{{
+                        titleAlert }}</div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="passwordr" class="mdl-textfield__input" [(ngModel)]="passwordr" type="password"
+                            id="webinar-time-zone">
+                        <label class="mdl-textfield__label" for="password">Password</label>
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!regForm.controls['passwordr'].valid && regForm.controls['passwordr'].touched">{{
+                        passwordAlert }}</div>
+
+                </div>
+            </div>
+            <div class="mmdl-cell mdl-cell--6-col" style="float: left;">
+                <div class="mdl-dialog__content">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="username" class="mdl-textfield__input" [(ngModel)]="username" type="text"
+                            id="webinar-topic">
+                        <label class="mdl-textfield__label" for="webinar-topic">Username</label>
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!regForm.controls['username'].valid && regForm.controls['username'].touched">Username
+                        is required</div>
+
+                    <int-phone-prefix formControlName="country_code" [(ngModel)]="phoneNumber"></int-phone-prefix>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input formControlName="phone_number" class="mdl-textfield__input" [(ngModel)]="phone_number"
+                            type="text" id="webinar-date">
+                        <label class="mdl-textfield__label" for="webinar-date">Mobile Number</label>
+                    </div>
+                    <div style="color:red; text-align: center !important;" class="alert" *ngIf="!regForm.controls['phone_number'].valid && regForm.controls['phone_number'].touched">Phone
+                        number is required</div>
+
+
+                </div>
+            </div>
+            <div class="alert">{{apiresAlert}}</div>
+
+            <div class="mdl-dialog__actions">
+                <button type="button" (click)="register()" (ngModelChange)="!regForm.valid" class="mdl-button">Submit</button>
+                <button type="button" class="mdl-button close">Close</button>
+            </div>
+        </form>
+    </div>
+</dialog>

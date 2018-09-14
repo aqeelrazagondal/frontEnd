@@ -1,0 +1,22 @@
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--magenta">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">RockVille Application</span>
+            <span class="mdl-layout-title page-name-title">Dashboard</span>
+   
+        </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer backround--color-white">
+        <app-profileview></app-profileview>
+        <hr>
+        <app-nav></app-nav>
+    </div>
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <!-- this creates a google map on the page with the given lat/lng from -->
+        <!-- the component as the initial center of the map: -->
+        <agm-map [latitude]="latitude" [longitude]="longitude">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        </agm-map>
+    </main>
+</div>
+
